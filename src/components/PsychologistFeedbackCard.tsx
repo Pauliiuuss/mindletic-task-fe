@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography } from '@mui/material'
+import { Card, CardContent, Rating, Typography } from '@mui/material'
 
 import { Feedback } from '@/actions/getPsychologistFeedback'
 
@@ -9,7 +9,6 @@ export const PsychologistFeedbackCard = ({
   data: Feedback[]
   name: string
 }) => {
-  console.log(data)
   return (
     <div className="flex flex-col gap-6" key={name}>
       <Typography variant="h4" component="div" align="center">
@@ -26,9 +25,14 @@ export const PsychologistFeedbackCard = ({
               raised
               key={feedback.score + feedback.text}
             >
-              <CardContent>
+              <CardContent
+                sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}
+              >
                 <Typography variant="h5" component="div" align="center">
-                  {feedback.score}
+                  <div className="flex justify-center gap-4">
+                    {feedback.score}
+                    <Rating name="read-only" value={feedback.score} readOnly />
+                  </div>
                 </Typography>
                 <Typography variant="body2" align="center">
                   {feedback.text}

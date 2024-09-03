@@ -3,14 +3,15 @@
 import { Card } from '@mui/material'
 import { BarChart, axisClasses } from '@mui/x-charts'
 
-import { Psychologist } from '@/actions/getPsychologistScores'
+import { PsychologistFeedback } from '@/actions/getPsychologistFeedback'
+import { PsychologistAverage } from '@/utils/calculateAverageScores'
 
 export const PsychologistBarChart = ({
-  psychologists,
+  psychologistsScore,
 }: {
-  psychologists: Psychologist[]
+  psychologistsScore: PsychologistAverage[]
 }) => {
-  const dataset = psychologists.map((psy) => ({
+  const dataset = psychologistsScore.map((psy) => ({
     name: psy.name,
     score: psy.score,
   }))
@@ -21,7 +22,7 @@ export const PsychologistBarChart = ({
         label: 'Psychologist Score',
       },
     ],
-    width: 700,
+    width: 1000,
     height: 400,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {
@@ -31,11 +32,17 @@ export const PsychologistBarChart = ({
   }
 
   return (
-    <div className="flex">
+    <div className="flex justify-center">
       <Card raised>
         <BarChart
+          borderRadius={10}
           margin={{ left: 80 }}
-          xAxis={[{ scaleType: 'band', dataKey: 'name' }]}
+          xAxis={[
+            {
+              scaleType: 'band',
+              dataKey: 'name',
+            },
+          ]}
           series={[{ dataKey: 'score', label: 'Psychologist Score' }]}
           dataset={dataset}
           {...chartSettings}

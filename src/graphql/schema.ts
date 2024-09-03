@@ -8,7 +8,6 @@ type Feedback {
 
 type Psychologist {
   name: String!
-  score: Float!
   feedback: [Feedback!]!
 }
 
@@ -20,7 +19,6 @@ export const rootValue = {
   psychologists: () => [
     {
       name: 'Dr. John Smith',
-      score: 4.5,
       feedback: [
         {
           score: 4.5,
@@ -38,7 +36,6 @@ export const rootValue = {
     },
     {
       name: 'Dr. Jane Doe',
-      score: 4.2,
       feedback: [
         {
           score: 4.2,
@@ -52,7 +49,6 @@ export const rootValue = {
     },
     {
       name: 'Dr. Emily Brown',
-      score: 4.8,
       feedback: [
         {
           score: 4.8,
@@ -74,7 +70,6 @@ export const rootValue = {
     },
     {
       name: 'Dr. Michael Green',
-      score: 4.0,
       feedback: [
         {
           score: 4.0,
@@ -84,7 +79,6 @@ export const rootValue = {
     },
     {
       name: 'Dr. Sarah White',
-      score: 4.7,
       feedback: [
         {
           score: 4.7,
