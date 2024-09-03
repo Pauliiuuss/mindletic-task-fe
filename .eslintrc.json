@@ -1,0 +1,15 @@
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended", "next", "prettier"],
+  "rules": {
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error",
+    "no-self-compare": "error",
+    "no-use-before-define": "error",
+    "arrow-body-style": ["error", "always"],
+    "no-console": "error",
+    "no-empty-function": "error",
+    "no-underscore-dangle": "error",
+    "no-var": "error",
+    "prefer-const": "error"
+  }
+}
