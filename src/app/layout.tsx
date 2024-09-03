@@ -16,9 +16,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const bodyStyling = `${inter.className} px-40 py-20`
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={bodyStyling}>{children}</body>
     </html>
   )
 }
